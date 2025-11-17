@@ -1,22 +1,24 @@
 /* ----------------------------------
-    フォントとカラーパレット（チルな配色）
+   フォントとカラーパレット（モノトーン基調）
    ---------------------------------- */
 :root {
-    /* 白を基調 */
-    --color-background: #F8F8F8; /* わずかに灰色がかった白 */
-    /* アクセントカラー1: 落ち着いた黒（濃いチャコールグレー） */
-    --color-text-dark: #4A4A4A;
-    /* アクセントカラー2: くすんだ茶色（テラコッタまたはモカ） */
-    --color-accent-brown: #B88665;
-    /* サブアクセント: 薄いグレー */
-    --color-light-gray: #E8E8E8;
+    /* モノトーン基調 */
+    --color-background-light: #FFFFFF; /* 白 */
+    --color-background-dark: #333333; /* 濃いチャコールグレー */
+    /* メインテキスト色は濃いチャコールグレー */
+    --color-text-main: #333333;
+    /* サブテキスト/フッター色は明るいグレー */
+    --color-text-sub: #A0A0A0;
     
-    /* フォント設定 */
-    --font-primary: 'Noto Serif JP', serif; /* 明朝体で落ち着いた印象 */
+    /* アクセントカラー: くすんだ茶色（変更なし） */
+    --color-accent-brown: #B88665; 
+    
+    /* フォント設定 (Noto Serif JPを維持) */
+    --font-primary: 'Noto Serif JP', serif; 
 }
 
 /* ----------------------------------
-    リセットCSSと基本設定
+   リセットCSSと基本設定
    ---------------------------------- */
 *,
 *::before,
@@ -27,39 +29,41 @@
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-text-dark);
+    /* 背景色を純粋な白に */
+    background-color: var(--color-background-light);
+    color: var(--color-text-main);
     font-family: var(--font-primary);
-    line-height: 1.8; /* 行間を広げ、ゆったりと */
-    font-weight: 300; /* フォントを少し細くして柔らかく */
+    line-height: 1.8; /* ゆったりとした行間を維持 */
+    font-weight: 300;
 }
 
 a {
-    color: var(--color-text-dark);
+    color: var(--color-text-main);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    /* ホバーでくすんだ茶色を少し濃く */
+    /* ホバーに茶色を使用 */
     color: var(--color-accent-brown);
 }
 
 /* ----------------------------------
-    ヘッダーとナビゲーション
+   ヘッダーとナビゲーション
    ---------------------------------- */
 header {
     width: 100%;
-    padding: 30px 60px; /* 余白を増やしてゆったりと */
+    padding: 30px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--color-light-gray);
+    /* モノトーンの境界線 */
+    border-bottom: 1px solid #E0E0E0; 
 }
 
 header h1 {
     font-size: 2em;
-    font-weight: 500; /* 細めの明朝体 */
+    font-weight: 500;
 }
 
 nav ul {
@@ -68,60 +72,73 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 40px; /* ナビゲーション間のスペースを広げる */
+    margin-left: 40px;
 }
 
 nav ul li a {
     font-size: 1.1em;
     font-weight: 400;
+    /* モノトーンの文字色 */
+    color: var(--color-text-main); 
 }
 
 /* ----------------------------------
    メインコンテンツ
    ---------------------------------- */
 main {
-    max-width: 900px; /* 幅を少し狭めて、中央にコンテンツを集中 */
-    margin: 60px auto; /* 上下の余白も増やしてリラックス感を */
+    max-width: 900px;
+    margin: 60px auto;
     padding: 0 30px;
 }
 
 section {
-    padding: 80px 0; /* セクション間の余白を大きく */
-    border-bottom: 1px solid var(--color-light-gray); 
+    padding: 80px 0;
+    /* モノトーンのセクション区切り */
+    border-bottom: 1px solid #F0F0F0; 
 }
 
 h2 {
+    /* 見出しはモノトーンの濃い色を使用しても良いですが、 */
+    /* ここではアクセントとして茶色を適用します */
     color: var(--color-accent-brown); 
     font-size: 2.8em;
     font-weight: 500;
     margin-bottom: 40px;
-    border-left: none; /* 前回のラインを削除 */
     position: relative;
     padding-left: 0;
 }
 
 h2::before {
-    /* タイトル下に控えめな線を追加し、落ち着いた雰囲気に */
+    /* 茶色の下線はそのまま維持 */
     content: '';
     display: block;
     width: 50px;
     height: 2px;
     background-color: var(--color-accent-brown);
     position: absolute;
-    bottom: -15px; /* h2の下に配置 */
+    bottom: -15px;
     left: 0;
 }
 
 /* ----------------------------------
    自己紹介セクション
    ---------------------------------- */
+.profile-info {
+    /* 例えば、自己紹介セクションの背景を濃いチャコールグレーにすることで、白黒を基調としたデザインを表現できます */
+    background-color: var(--color-background-dark); 
+    color: var(--color-background-light); /* 文字色を白に反転 */
+    padding: 40px;
+    margin: 20px 0;
+}
+
 .profile-info p {
     margin-bottom: 25px; 
     font-size: 1.15em;
 }
 
 .profile-info strong {
-    color: var(--color-text-dark);
+    /* 強調文字を白に */
+    color: var(--color-background-light);
     font-weight: 500; 
     margin-right: 15px;
 }
@@ -130,7 +147,7 @@ h2::before {
    リストとフッター
    ---------------------------------- */
 #skills ul {
-    list-style-type: '☕ '; /* リストマーカーをコーヒーカップ（チルなイメージ）に変更 */
+    list-style-type: '☕ '; 
     margin-left: 0;
     padding-left: 20px;
 }
@@ -144,14 +161,12 @@ footer {
     text-align: center;
     padding: 40px 0;
     font-size: 0.9em;
-    color: #A0A0A0; 
-    border-top: 1px solid var(--color-light-gray);
+    /* 控えめなグレー */
+    color: var(--color-text-sub); 
+    border-top: 1px solid #F0F0F0;
 }
 
-/* ----------------------------------
-   ユーティリティクラス（絵文字の調整）
-   ---------------------------------- */
-/* 絵文字はそのまま使用するか、非表示にして全体のトーンを合わせても良いです */
+/* ユーティリティクラス（絵文字の調整）を維持 */
 .emoji {
-    display: none; /* チルな雰囲気のため、アイコンの多用を避ける */
+    display: none;
 }
