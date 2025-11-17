@@ -24,3 +24,34 @@ window.addEventListener('scroll', () => {
     // 現在の位置を次のスクロールイベントのために記憶
     lastScrollY = currentScrollY;
 });
+// ------------------------------------------------
+// ハンバーガーメニュー機能の追加
+// ------------------------------------------------
+const hamburger = document.querySelector('.hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    // 1. ハンバーガーアイコンの状態を切り替える
+    hamburger.classList.toggle('is-active');
+    
+    // 2. ナビゲーションリストの表示/非表示を切り替える
+    navLinks.classList.toggle('is-open');
+
+    // 3. メニューを開いているときは、スクロールを無効にする（オプション）
+    if (navLinks.classList.contains('is-open')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// リンクをクリックしたらメニューを閉じる
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            hamburger.classList.remove('is-active');
+            navLinks.classList.remove('is-open');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
