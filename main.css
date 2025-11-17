@@ -1,7 +1,19 @@
-/*
- * 全体のスタイル設定
- * 白基調に黒と茶色をアクセントに使用
- */
+/* ----------------------------------
+   フォントとカラーパレット（チルな配色）
+   ---------------------------------- */
+:root {
+    /* 白を基調 */
+    --color-background: #F8F8F8; /* わずかに灰色がかった白 */
+    /* アクセントカラー1: 落ち着いた黒（濃いチャコールグレー） */
+    --color-text-dark: #4A4A4A;
+    /* アクセントカラー2: くすんだ茶色（テラコッタまたはモカ） */
+    --color-accent-brown: #B88665;
+    /* サブアクセント: 薄いグレー */
+    --color-light-gray: #E8E8E8;
+    
+    /* フォント設定 */
+    --font-primary: 'Noto Serif JP', serif; /* 明朝体で落ち着いた印象 */
+}
 
 /* ----------------------------------
    リセットCSSと基本設定
@@ -15,23 +27,22 @@
 }
 
 body {
-    /* 白を基調とする */
-    background-color: #FFFFFF;
-    color: #333333; /* 文字色は濃い灰色（ほぼ黒）*/
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* シンプルでモダンなフォント */
-    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    font-family: var(--font-primary);
+    line-height: 1.8; /* 行間を広げ、ゆったりと */
+    font-weight: 300; /* フォントを少し細くして柔らかく */
 }
 
 a {
-    /* アクセントカラー1: 黒 (リンクのデフォルト) */
-    color: #333333;
+    color: var(--color-text-dark);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    /* アクセントカラー2: 茶色 (ホバー時の変化) */
-    color: #8B4513; /* Saddle Brown（落ち着いた茶色） */
+    /* ホバーでくすんだ茶色を少し濃く */
+    color: var(--color-accent-brown);
 }
 
 /* ----------------------------------
@@ -39,16 +50,16 @@ a:hover {
    ---------------------------------- */
 header {
     width: 100%;
-    padding: 20px 40px;
+    padding: 30px 60px; /* 余白を増やしてゆったりと */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #E0E0E0; /* 境界線を薄い灰色で */
+    border-bottom: 1px solid var(--color-light-gray);
 }
 
 header h1 {
-    font-size: 1.8em;
-    font-weight: 700;
+    font-size: 2em;
+    font-weight: 500; /* 細めの明朝体 */
 }
 
 nav ul {
@@ -57,87 +68,90 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 40px; /* ナビゲーション間のスペースを広げる */
 }
 
 nav ul li a {
-    font-size: 1em;
-    font-weight: 500;
-    /* アクセントカラー1: 黒 */
-    color: #000000;
+    font-size: 1.1em;
+    font-weight: 400;
 }
 
 /* ----------------------------------
    メインコンテンツ
    ---------------------------------- */
 main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 900px; /* 幅を少し狭めて、中央にコンテンツを集中 */
+    margin: 60px auto; /* 上下の余白も増やしてリラックス感を */
+    padding: 0 30px;
 }
 
 section {
-    padding: 60px 0;
-    border-bottom: 1px solid #F0F0F0; /* セクションの区切りを薄く */
-}
-
-section:last-child {
-    border-bottom: none;
+    padding: 80px 0; /* セクション間の余白を大きく */
+    border-bottom: 1px solid var(--color-light-gray); 
 }
 
 h2 {
-    /* アクセントカラー2: 茶色 */
-    color: #A0522D; /* Sienne（シエナ、少し赤みのある茶色） */
-    font-size: 2.5em;
-    font-weight: 600;
-    margin-bottom: 30px;
-    border-left: 5px solid #8B4513; /* 左側のラインに茶色を使用 */
-    padding-left: 15px;
-    display: flex;
-    align-items: center;
+    color: var(--color-accent-brown); 
+    font-size: 2.8em;
+    font-weight: 500;
+    margin-bottom: 40px;
+    border-left: none; /* 前回のラインを削除 */
+    position: relative;
+    padding-left: 0;
+}
+
+h2::before {
+    /* タイトル下に控えめな線を追加し、落ち着いた雰囲気に */
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-accent-brown);
+    position: absolute;
+    bottom: -15px; /* h2の下に配置 */
+    left: 0;
 }
 
 /* ----------------------------------
    自己紹介セクション
    ---------------------------------- */
 .profile-info p {
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    margin-bottom: 25px; 
+    font-size: 1.15em;
 }
 
 .profile-info strong {
-    /* アクセントカラー1: 黒 */
-    color: #000000;
-    font-weight: 700;
-    margin-right: 10px;
+    color: var(--color-text-dark);
+    font-weight: 500; 
+    margin-right: 15px;
 }
 
 /* ----------------------------------
    リストとフッター
    ---------------------------------- */
 #skills ul {
-    list-style: disc;
-    margin-left: 20px;
+    list-style-type: '☕ '; /* リストマーカーをコーヒーカップ（チルなイメージ）に変更 */
+    margin-left: 0;
     padding-left: 20px;
 }
 
 #skills ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 1.1em;
 }
 
 footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 40px 0;
     font-size: 0.9em;
-    color: #AAAAAA; /* 控えめな灰色 */
-    border-top: 1px solid #F0F0F0;
+    color: #A0A0A0; 
+    border-top: 1px solid var(--color-light-gray);
 }
 
 /* ----------------------------------
    ユーティリティクラス（絵文字の調整）
    ---------------------------------- */
+/* 絵文字はそのまま使用するか、非表示にして全体のトーンを合わせても良いです */
 .emoji {
-    margin-right: 10px;
-    font-size: 1.2em;
+    display: none; /* チルな雰囲気のため、アイコンの多用を避ける */
 }
