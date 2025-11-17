@@ -170,3 +170,60 @@ footer {
 .emoji {
     display: none;
 }
+/* ----------------------------------
+   ヘッダーとナビゲーション
+   ---------------------------------- */
+header {
+    /* 背景色を濃いチャコールグレー（黒）に変更 */
+    background-color: var(--color-background-dark); 
+    width: 100%;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none; /* モノトーン化のため境界線を削除 */
+    
+    /* ヘッダーを固定し、スクロールしても追従するように設定 */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 他の要素より手前に表示 */
+    transition: transform 0.3s ease-out; /* スクロール時のアニメーション */
+}
+
+header h1 {
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--color-background-light); /* 文字色を白に反転 */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 40px;
+}
+
+nav ul li a {
+    font-size: 1.1em;
+    font-weight: 400;
+    /* ナビゲーションの文字色を白に反転 */
+    color: var(--color-background-light); 
+}
+
+/* ヘッダーを非表示にするためのクラス */
+.header-hidden {
+    /* ヘッダーの高さ分、上へ移動させて非表示にする */
+    transform: translateY(-100%); 
+}
+
+/* メインコンテンツがヘッダーの下に隠れないように調整 */
+main {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 30px;
+    /* 固定ヘッダーの分、上部に余白を追加 */
+    padding-top: 100px; 
+}
