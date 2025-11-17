@@ -1,0 +1,143 @@
+/*
+ * 全体のスタイル設定
+ * 白基調に黒と茶色をアクセントに使用
+ */
+
+/* ----------------------------------
+   リセットCSSと基本設定
+   ---------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 白を基調とする */
+    background-color: #FFFFFF;
+    color: #333333; /* 文字色は濃い灰色（ほぼ黒）*/
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* シンプルでモダンなフォント */
+    line-height: 1.6;
+}
+
+a {
+    /* アクセントカラー1: 黒 (リンクのデフォルト) */
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    /* アクセントカラー2: 茶色 (ホバー時の変化) */
+    color: #8B4513; /* Saddle Brown（落ち着いた茶色） */
+}
+
+/* ----------------------------------
+   ヘッダーとナビゲーション
+   ---------------------------------- */
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0; /* 境界線を薄い灰色で */
+}
+
+header h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-size: 1em;
+    font-weight: 500;
+    /* アクセントカラー1: 黒 */
+    color: #000000;
+}
+
+/* ----------------------------------
+   メインコンテンツ
+   ---------------------------------- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #F0F0F0; /* セクションの区切りを薄く */
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    /* アクセントカラー2: 茶色 */
+    color: #A0522D; /* Sienne（シエナ、少し赤みのある茶色） */
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border-left: 5px solid #8B4513; /* 左側のラインに茶色を使用 */
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* ----------------------------------
+   自己紹介セクション
+   ---------------------------------- */
+.profile-info p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.profile-info strong {
+    /* アクセントカラー1: 黒 */
+    color: #000000;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+/* ----------------------------------
+   リストとフッター
+   ---------------------------------- */
+#skills ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+#skills ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    color: #AAAAAA; /* 控えめな灰色 */
+    border-top: 1px solid #F0F0F0;
+}
+
+/* ----------------------------------
+   ユーティリティクラス（絵文字の調整）
+   ---------------------------------- */
+.emoji {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
