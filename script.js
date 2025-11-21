@@ -29,22 +29,28 @@ const header = document.querySelector('header');
 let lastScrollY = 0; 
 // ... (既存のスクロールイベントリスナーは省略、そのまま残してください)
 
+// ... (既存のヘッダー表示/非表示機能のコードはそのまま維持) ...
+
 // ------------------------------------------------
-// ハンバーガーメニュー機能の追加
+// ハンバーガーメニュー機能の追加 (変更なしで動作)
 // ------------------------------------------------
 const hamburger = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
-    // 1. ハンバーガーアイコンの状態を切り替える
+    // 1. ハンバーガーアイコンの状態を切り替える (X印への変形)
     hamburger.classList.toggle('is-active');
     
-    // 2. ナビゲーションリストの表示/非表示を切り替える
+    // 2. ナビゲーションリストの表示/非表示を切り替える (サイドバーのスライドイン)
     navLinks.classList.toggle('is-open');
 
-    // 3. メニューを開いているときは、スクロールを無効にする（オプション）
+    // 3. メニューを開いているときは、スクロールを無効にする
     if (navLinks.classList.contains('is-open')) {
         document.body.style.overflow = 'hidden';
+        
+        // メニュー表示中はヘッダーのスクロール非表示機能を一時的に停止しても良いですが、
+        // 今回のCSS設定ではヘッダーとメニューを独立させたため、このままでOKです。
+        
     } else {
         document.body.style.overflow = 'auto';
     }
@@ -53,10 +59,9 @@ hamburger.addEventListener('click', () => {
 // リンクをクリックしたらメニューを閉じる
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            hamburger.classList.remove('is-active');
-            navLinks.classList.remove('is-open');
-            document.body.style.overflow = 'auto';
-        }
+        // メニューが閉じるときにクラスを削除
+        hamburger.classList.remove('is-active');
+        navLinks.classList.remove('is-open');
+        document.body.style.overflow = 'auto';
     });
 });

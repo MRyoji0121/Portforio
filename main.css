@@ -228,90 +228,99 @@ main {
     padding-top: 100px; 
 }
 /* ----------------------------------
-   ハンバーガーメニュー関連のCSS
+   ハンバーガーメニュー関連のCSS修正
    ---------------------------------- */
 
 /* ハンバーガーボタン自体のスタイル */
 .hamburger-menu {
-    display: none; /* デフォルトでは非表示 */
+    /* display: none; を削除し、常時表示 */
+    display: block; 
     width: 30px;
     height: 30px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    position: relative;
-    z-index: 1001; /* ナビゲーションリストより手前に */
+    position: fixed; /* ヘッダーから切り離し、固定配置 */
+    top: 35px; /* 上からの位置 */
+    right: 40px; /* 右端からの位置 */
+    z-index: 2000; /* 最前面に配置 */
 }
 
-/* 3本の線のスタイル */
+/* 3本の線のスタイル（白を維持） */
 .hamburger-menu .bar {
     display: block;
     width: 100%;
     height: 3px;
     margin: 5px 0;
-    background-color: var(--color-background-light); /* 黒いヘッダーに合わせて白 */
+    background-color: var(--color-text-main); /* モノトーン基調の色（黒）に合わせる */
     transition: all 0.3s ease;
     border-radius: 5px;
 }
 
-/* メニューを開いた状態のボタン (X印への変形) */
-.hamburger-menu.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+/* ヘッダーが黒なので、アイコンは白文字にします */
+header {
+    /* position: fixed; と z-index: 1000; は維持 */
+    /* ... 既存のヘッダーCSS ... */
 }
 
-.hamburger-menu.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* ナビゲーションリストの初期スタイル */
+/* リンクを収容する目次（ul.nav-links）のスタイル */
 nav ul.nav-links {
-    /* デスクトップの表示を維持 */
-    list-style: none;
-    display: flex; 
-    transition: all 0.3s ease;
+    /* デフォルトのflexを削除し、サイドバーとして設定 */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* メニューの幅 */
+    height: 100vh; /* 全画面の高さ */
+    background-color: var(--color-background-light); /* 背景を白（見やすくするため） */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 100px 40px; /* 上部と左右の余白 */
+    text-align: left;
+    z-index: 1500;
+    
+    /* 初期状態で画面外に隠す */
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); /* なめらかなスライドアニメーション */
 }
 
-/* ----------------------------------
-   レスポンシブデザイン（モバイル時）
-   ---------------------------------- */
+/* メニューが開いたとき（JavaScriptで is-open が付与される） */
+nav ul.nav-links.is-open {
+    transform: translateX(0); /* 画面内にスライドイン */
+}
+
+/* ナビゲーションリスト内の個々のリンクのスタイル */
+nav ul.nav-links li {
+    margin: 20px 0;
+    /* モノトーンの雰囲気に合わせる */
+    border-bottom: 1px solid #EAEAEA; 
+    padding-bottom: 15px;
+}
+
+nav ul.nav-links li:last-child {
+    border-bottom: none;
+}
+
+nav ul.nav-links li a {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--color-text-main); /* 文字色を黒に */
+    display: block;
+    transition: color 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+    color: var(--color-accent-brown); /* ホバーで茶色に */
+}
+
+/* モバイルのメディアクエリは削除しても良いですが、幅を広く取る場合は維持してください */
 @media (max-width: 768px) {
-    /* モバイルではハンバーガーアイコンを表示 */
+    /* 既存のCSSを調整 */
     .hamburger-menu {
-        display: block; 
+        right: 20px;
     }
-
-    /* ナビゲーションリストを縦並びにして、初期は非表示 */
     nav ul.nav-links {
-        display: none; /* JavaScriptで制御するため一旦非表示 */
-        flex-direction: column;
-        position: absolute;
-        top: 86px; /* ヘッダーの高さに合わせて調整 */
-        right: 0;
-        width: 100%;
-        background-color: var(--color-background-dark); /* ヘッダーと同じ黒背景 */
-        border-top: 1px solid var(--color-accent-brown); /* アクセントで区切り線 */
-        padding: 20px 0;
-        text-align: center;
-        /* モバイルでメニューが表示されたときのスタイル */
-    }
-
-    nav ul.nav-links li {
-        margin: 20px 0;
-    }
-
-    nav ul.nav-links li a {
-        font-size: 1.3em;
-        display: block;
-        padding: 10px 0;
-    }
-    
-    /* JavaScriptでこのクラスが追加されたときにメニューを表示 */
-    nav ul.nav-links.is-open {
-        display: flex;
+        width: 100%; /* モバイルでは全幅にしても良い */
     }
 }
