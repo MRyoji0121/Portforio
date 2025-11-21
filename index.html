@@ -1,80 +1,113 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8" />
-    <title>MaedaRyoji Official HomePage</title>
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0,user-scalable=yes"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryoji Maeda Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Maeda Ryoji - ポートフォリオ</h1>
-        <nav>
-            <button class="hamburger-menu" aria-label="メニューを開く">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
-            <ul class="nav-links">
+        <div class="logo">Ryoji Maeda</div>
+        <nav class="nav-menu">
+            <ul>
                 <li><a href="#about">自己紹介</a></li>
                 <li><a href="#skills">スキル</a></li>
                 <li><a href="#works">制作物</a></li>
                 <li><a href="#contact">連絡先</a></li>
             </ul>
         </nav>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>自己紹介</h2>
-            <div class="profile-info">
-                <p><strong>名前:</strong> 前田 亮司 (Maeda Ryoji)</p>
-                <p><strong>年齢:</strong> 25歳</p>
-                <p>
-                    20XX年よりWeb開発を学んでいる駆け出しエンジニアです。
-                    主にHTML, CSS, JavaScriptを用いたフロントエンド開発に興味があり、ユーザーにとって使いやすいインターフェースの作成を目指しています。
-                    現在はさらなるスキルアップのため、Reactなどのフレームワークやバックエンド技術も学習中です。
-                </p>
+        <section id="about" class="hero-section">
+            <div class="container">
+                <h1>前田 陵志 のポートフォリオ</h1>
+                <p class="catchphrase">好奇心と技術で未来を創造する、16歳の高専生エンジニア。</p>
+                <div class="self-intro">
+                    <p>
+                        はじめまして、**前田 陵志（まえだ りょうじ）**です。現在16歳。
+                        技術者としての深い知識と実践力を身につけるため、高等専門学校で日々学んでいます。
+                        特にWeb技術とプログラミングに強い関心があり、学んだことをすぐに形にすることをモットーにしています。
+                        このポートフォリオでは、これまでに培ってきたスキルと制作物を紹介します。
+                    </p>
+                </div>
             </div>
-            
         </section>
 
-        <section id="skills">
-            <h2>スキル</h2>
-            <ul>
-                <li>HTML5 / CSS3</li>
-                <li>Python</li>
-                <li>Scratch</li>
-                <li>JavaScript (ES6~)</li>
-                <li>Git/GitHub</li>
-            </ul>
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>💻 スキル</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <h3>Python</h3>
+                        <p>簡単なデータ処理、スクリプト作成、Webスクレイピングなど。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>HTML</h3>
+                        <p>セマンティックな構造化、アクセシビリティを考慮したマークアップ。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>CSS</h3>
+                        <p>モダンなレイアウト（Flexbox, Grid）やレスポンシブデザインの設計・実装。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>JavaScript</h3>
+                        <p>DOM操作、イベントハンドリング、Webページのインタラクティブな機能実装。</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="works">
-            <h2>制作物</h2>
-            <p>Portforio/PV.mp4</p>
-            <p></p>
+        <section id="works" class="section">
+            <div class="container">
+                <h2>📂 制作物</h2>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <img src="placeholder-work1.jpg" alt="制作物1の画像">
+                        <h3>Webアプリケーションのプロトタイプ</h3>
+                        <p>Python (Flask) と連携した簡単なTo-Doリストアプリケーション。フロントエンドはHTML/CSS/JSで構成。</p>
+                        <a href="#" target="_blank" class="button">詳細を見る</a>
+                    </div>
+                    <div class="work-item">
+                        <img src="placeholder-work2.jpg" alt="制作物2の画像">
+                        <h3>レスポンシブなランディングページ</h3>
+                        <p>CSSのGridとFlexboxを駆使し、スマートフォンからデスクトップまで対応した企業のLPモックアップ。</p>
+                        <a href="#" target="_blank" class="button">詳細を見る</a>
+                    </div>
+                    <div class="work-item">
+                        <img src="placeholder-work3.jpg" alt="制作物3の画像">
+                        <h3>データ可視化スクリプト</h3>
+                        <p>Pythonで取得したデータをグラフ化し、静的なWebページに埋め込んだデモ。</p>
+                        <a href="#" target="_blank" class="button">詳細を見る</a>
+                    </div>
+                </div>
+                <p class="note">※画像はプレースホルダーです。実際にご自身の制作物のスクリーンショットに差し替えてください。</p>
+            </div>
         </section>
 
-        <section id="contact">
-            <h2>連絡先</h2>
-            <p>お仕事のご依頼やお問い合わせはこちらまで。</p>
-            <p>Email: example@email.com</p>
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2>✉️ 連絡先</h2>
+                <div class="contact-info">
+                    <p>ご興味をお持ちいただけましたら、お気軽にご連絡ください。</p>
+                    <ul>
+                        <li>**メールアドレス:** <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+                        <li>**GitHub:** <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
+                        </ul>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Maeda Ryoji Official HomePage</p>
+        <p>&copy; 2025 Ryoji Maeda Portfolio</p>
     </footer>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>

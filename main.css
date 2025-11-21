@@ -1,241 +1,318 @@
-/* ----------------------------------
-   フォントとカラーパレット（モノトーン基調と茶色アクセント）
-   ---------------------------------- */
+/* 基本設定 */
 :root {
-    /* モノトーン基調 */
-    --color-background-light: #FFFFFF; /* 白 */
-    --color-background-dark: #333333; /* 濃いチャコールグレー */
-    /* メインテキスト色は濃いチャコールグレー */
-    --color-text-main: #333333;
-    /* サブテキスト/フッター色は明るいグレー */
-    --color-text-sub: #A0A0A0;
-    
-    /* アクセントカラー: くすんだ茶色 */
-    --color-accent-brown: #B88665; 
-    
-    /* フォント設定 */
-    --font-primary: 'Noto Serif JP', serif; 
+    --color-primary-dark: #1a1a1a; /* 黒基調 */
+    --color-secondary-light: #ffffff; /* 白基調 */
+    --color-accent-brown: #a0522d; /* 茶色アクセント (Sienna) */
+    --color-text-light: #f0f0f0;
+    --color-text-dark: #333333;
+    --font-family: 'Arial', sans-serif;
 }
 
-/* ----------------------------------
-   リセットCSSと基本設定
-   ---------------------------------- */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--color-background-light);
-    color: var(--color-text-main);
-    font-family: var(--font-primary);
-    line-height: 1.8; /* ゆったりとした行間 */
-    font-weight: 300;
+    font-family: var(--font-family);
+    background-color: var(--color-secondary-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-a {
-    color: var(--color-text-main);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--color-accent-brown);
-}
-
-/* ----------------------------------
-   ヘッダーとナビゲーション (固定ヘッダーとスクロール非表示機能)
-   ---------------------------------- */
+/* ヘッダー */
 header {
-    background-color: var(--color-background-dark); 
-    width: 100%;
-    padding: 30px 60px;
+    background-color: var(--color-primary-dark);
+    color: var(--color-secondary-light);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: none;
-    
-    position: fixed; 
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 1000;
-    transition: transform 0.3s ease-out; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-header h1 {
-    font-size: 2em;
-    font-weight: 500;
-    color: var(--color-background-light); /* 文字色を白に反転 */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-accent-brown); /* ロゴをアクセントカラーに */
 }
 
-/* ヘッダーを非表示にするためのクラス */
-.header-hidden {
-    transform: translateY(-100%); 
-}
-
-/* ----------------------------------
-   ハンバーガーメニュー (常時表示とサイドバー設定)
-   ---------------------------------- */
-/* ハンバーガーボタン自体のスタイル */
-.hamburger-menu {
-    display: block; 
-    width: 30px;
-    height: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: fixed; 
-    top: 35px; 
-    right: 40px; 
-    z-index: 2000; 
-}
-
-/* 3本の線のスタイル */
-.hamburger-menu .bar {
-    display: block;
-    width: 100%;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--color-text-main); /* 黒 */
-    transition: all 0.3s ease;
-    border-radius: 5px;
-}
-
-/* メニューが開いた状態のボタン (X印への変形) */
-.hamburger-menu.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.hamburger-menu.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-.hamburger-menu.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* リンクを収容する目次（ul.nav-links）のスタイル */
-nav ul.nav-links {
-    display: flex;
-    flex-direction: column;
+/* ナビゲーションメニュー */
+.nav-menu ul {
     list-style: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px; 
-    height: 100vh; 
-    background-color: var(--color-background-light); /* 背景を白 */
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    padding: 100px 40px; 
-    text-align: left;
-    z-index: 1500;
-    
-    transform: translateX(100%); /* 初期状態で画面外に隠す */
-    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    display: flex;
 }
 
-/* メニューが開いたとき */
-nav ul.nav-links.is-open {
-    transform: translateX(0); 
+.nav-menu ul li {
+    margin-left: 20px;
 }
 
-/* ナビゲーションリスト内の個々のリンクのスタイル */
-nav ul.nav-links li {
-    margin: 20px 0;
-    border-bottom: 1px solid #EAEAEA; 
-    padding-bottom: 15px;
-}
-nav ul.nav-links li:last-child {
-    border-bottom: none;
-}
-nav ul.nav-links li a {
-    font-size: 1.2em;
-    font-weight: 400;
-    color: var(--color-text-main); 
-    display: block;
-}
-
-/* ----------------------------------
-   メインコンテンツ
-   ---------------------------------- */
-main {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 30px;
-    padding-top: 100px; /* 固定ヘッダーの分、上部に余白を追加 */
-}
-
-section {
-    padding: 80px 0; 
-    border-bottom: 1px solid #F0F0F0; 
-}
-
-h2 {
-    color: var(--color-accent-brown); 
-    font-size: 2.8em;
+.nav-menu ul li a {
+    color: var(--color-secondary-light);
+    text-decoration: none;
     font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--color-accent-brown);
+    border-bottom: 2px solid var(--color-accent-brown);
+}
+
+/* ハンバーガーメニューアイコン (モバイル用) */
+.hamburger-menu {
+    display: none; /* デスクトップでは非表示 */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-accent-brown);
+}
+
+/* メインコンテンツの共通スタイル */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    text-align: center;
     margin-bottom: 40px;
     position: relative;
-    padding-left: 0;
+    padding-bottom: 10px;
 }
 
-h2::before {
+.section h2::after {
     content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: var(--color-accent-brown);
     position: absolute;
-    bottom: -15px; 
-    left: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* ----------------------------------
-   自己紹介セクション
-   ---------------------------------- */
-.profile-info {
-    /* 白黒のコントラストを出す */
-    background-color: var(--color-background-dark); 
-    color: var(--color-background-light); 
-    padding: 40px;
-    margin: 20px 0;
-}
-
-.profile-info p {
-    margin-bottom: 25px; 
-    font-size: 1.15em;
-}
-
-.profile-info strong {
-    color: var(--color-background-light);
-    font-weight: 500; 
-    margin-right: 15px;
-}
-
-/* ----------------------------------
-   リストとフッター
-   ---------------------------------- */
-#skills ul {
-    list-style-type: '☕ '; 
-    margin-left: 0;
-    padding-left: 20px;
-}
-
-#skills ul li {
-    margin-bottom: 15px;
-    font-size: 1.1em;
-}
-
-footer {
+/* ヒーロー/自己紹介セクション */
+.hero-section {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 100px 0;
     text-align: center;
-    padding: 40px 0;
-    font-size: 0.9em;
-    color: var(--color-text-sub); 
-    border-top: 1px solid #F0F0F0;
 }
 
-.emoji {
-    display: none;
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-section .catchphrase {
+    font-size: 1.2rem;
+    color: var(--color-accent-brown);
+    margin-bottom: 30px;
+}
+
+.hero-section .self-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* スキルセクション */
+.skill-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.skill-item {
+    background-color: var(--color-secondary-light);
+    border: 2px solid var(--color-primary-dark);
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 var(--color-accent-brown);
+    transition: transform 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item h3 {
+    color: var(--color-accent-brown);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+/* 制作物セクション */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.work-item {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.work-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.work-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.work-item h3 {
+    padding: 15px 15px 5px;
+    color: var(--color-primary-dark);
+}
+
+.work-item p {
+    padding: 0 15px 15px;
+    font-size: 0.95rem;
+}
+
+.work-item .button {
+    display: inline-block;
+    background-color: var(--color-accent-brown);
+    color: var(--color-secondary-light);
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 15px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.work-item .button:hover {
+    background-color: #8b4513; /* Darker brown */
+}
+
+.note {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+}
+
+/* 連絡先セクション */
+.contact-section {
+    background-color: #f5f5f5;
+}
+
+.contact-info {
+    text-align: center;
+    background-color: var(--color-secondary-light);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding-top: 15px;
+}
+
+.contact-info ul li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: var(--color-accent-brown);
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* フッター */
+footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    /* ヘッダー/ナビゲーション */
+    .nav-menu {
+        display: none; /* 通常メニューを非表示 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* ヘッダーの高さに合わせて調整 */
+        right: 0;
+        width: 100%;
+        background-color: var(--color-primary-dark);
+        border-top: 1px solid var(--color-accent-brown);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-menu ul li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        padding: 15px 20px;
+    }
+
+    .hamburger-menu {
+        display: block; /* ハンバーガーアイコンを表示 */
+    }
+
+    /* セクション */
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .skill-grid {
+        gap: 20px;
+    }
+
+    .skill-item {
+        width: 100%; /* モバイルではフル幅 */
+        max-width: 350px;
+    }
 }
