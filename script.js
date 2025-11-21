@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- モーダルウィンドウの開閉処理 (新規追加) ---
+    // --- モーダルウィンドウの開閉処理 ---
 
     // 「詳細を見る」ボタン（モーダルを開く）
     document.querySelectorAll('.open-modal').forEach(button => {
@@ -69,4 +69,38 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'auto'; // 背景のスクロールを有効
         }
     });
+    
+    // --- 制作物1のYouTubeサムネイル処理 (おまけ) ---
+    // 制作物1のYouTube動画URLを抽出してサムネイルとして表示する
+    const work1Item = document.querySelector('#works .work-item:first-child');
+    const youtubeH = work1Item ? work1Item.querySelector('h') : null;
+
+    if (youtubeH) {
+        const youtubeUrl = youtubeH.textContent.trim().replace(/"/g, '');
+        // YouTubeの動画IDを取得する関数
+        const getYoutubeId = (url) => {
+            const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|\w\/\w|.+\?v=)|youtu\.be\/)([^&?]*)/;
+            const match = url.match(regex);
+            return (match && match[1].length === 11) ? match[1] : null;
+        };
+        
+        const videoId = getYoutubeId(youtubeUrl);
+
+        if (videoId) {
+            // サムネイル画像URLを生成
+            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            
+            // img要素を作成
+            const imgElement = document.createElement('img');
+            imgElement.src = thumbnailUrl;
+            imgElement.alt = "Minecraft*高専RPGの動画サムネイル";
+
+            // 画像を収めるためのコンテナを作成し、YouTubeリンクのh要素の直前に挿入
+            const containerDiv = document.createElement('div');
+            containerDiv.classList.add('media-container');
+            containerDiv.appendChild(imgElement);
+
+            youtubeH.parentNode.insertBefore(containerDiv, youtubeH);
+        }
+    }
 });

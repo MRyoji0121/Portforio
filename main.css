@@ -165,7 +165,7 @@ header {
 /* 制作物セクション */
 .work-grid {
     display: grid;
-    /* 制作物を2つにしたため、max-widthが大きいときは2カラム表示 */
+    /* 制作物を2つにしたため、2カラム表示 */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     max-width: 800px; /* 2カラムに収まるように幅を制限 */
     margin: 0 auto;
@@ -184,12 +184,35 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.work-item img {
+/* 制作物アイテム内のコンテンツ */
+.work-item > * {
+    padding: 0 15px;
+}
+
+/* 画像/動画サムネイルコンテナの共通スタイル */
+.work-item .media-container {
     width: 100%;
     height: 200px;
+    background-color: #333; /* プレースホルダーとして */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 実際の画像 */
+.work-item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
+
+/* 制作物1のYouTubeリンクテキストを非表示にするための調整 */
+.work-item h {
+    display: none;
+}
+
 
 .work-item h3 {
     padding: 15px 15px 5px;
@@ -273,7 +296,7 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow-y: auto; /* コンテンツが長い場合にスクロール可能に */
+    overflow-y: auto; 
     background-color: rgba(0, 0, 0, 0.8); 
     padding: 20px;
 }
@@ -339,6 +362,11 @@ footer {
     margin-bottom: 10px;
 }
 
+.modal-description ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     /* ... (既存のレスポンシブ調整) ... */
@@ -360,5 +388,14 @@ footer {
 
     .modal-gallery img {
         height: auto;
+    }
+    
+    .hamburger-menu {
+        display: block; 
+    }
+    
+    .nav-menu {
+        display: none; 
+        /* ... 他のモバイルナビのスタイル ... */
     }
 }
