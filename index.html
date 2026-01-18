@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryoji Maeda Portfolio</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <header>
         <div class="logo">Ryoji Maeda</div>
-        <nav class="nav-menu">
-            <ul>
+        <nav>
+            <button class="hamburger-menu" aria-label="メニューを開く">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#about">自己紹介</a></li>
                 <li><a href="#skills">スキル</a></li>
                 <li><a href="#works">制作物</a></li>
                 <li><a href="#contact">連絡先</a></li>
             </ul>
         </nav>
-        <div class="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
 
     <main>
@@ -30,10 +35,9 @@
                 <p class="catchphrase">好奇心と技術で未来を創造する、16歳の高専生エンジニア。</p>
                 <div class="self-intro">
                     <p>
-                        はじめまして、**前田 陵志（まえだ りょうじ）**です。現在16歳。
+                        はじめまして、<strong>前田 陵志（まえだ りょうじ）</strong>です。現在16歳。
                         技術者としての深い知識と実践力を身につけるため、大阪公立大学付属高等専門学校で日々学んでいます。
                         特にゲーム開発とプログラミングに強い関心があり、学んだことをすぐに形にすることをモットーにしています。
-                        このポートフォリオでは、これまでに培ってきたスキルと制作物を紹介します。
                     </p>
                 </div>
             </div>
@@ -43,18 +47,10 @@
             <div class="container">
                 <h2>💻 スキル</h2>
                 <div class="skill-grid">
-                    <div class="skill-item">
-                        <p>Python</p>
-                    </div>
-                    <div class="skill-item">
-                        <p>HTML</p>
-                    </div>
-                    <div class="skill-item">
-                        <p>CSS</p>
-                    </div>
-                    <div class="skill-item">
-                        <p>JavaScript</p>
-                    </div>
+                    <div class="skill-item"><p>Python</p></div>
+                    <div class="skill-item"><p>HTML</p></div>
+                    <div class="skill-item"><p>CSS</p></div>
+                    <div class="skill-item"><p>JavaScript</p></div>
                 </div>
             </div>
         </section>
@@ -64,25 +60,24 @@
                 <h2>📂 制作物</h2>
                 <div class="work-grid">
                     <div class="work-item">
-                        <h>"https://youtu.be/riZFF3YesHk" </h>
-                        <h3>Minecraftと高専を掛け合わせたRPGのMOD</h3>
-                        <p>javaScript環境でMinecraftの追加要素を作りました。</p>
+                        <div class="media-container"><img src="MPlay-1.png" alt="Minecraft MOD"></div>
+                        <h3>Minecraft×高専RPG</h3>
+                        <p>JavaScript環境でMinecraftの追加要素（MOD）を制作しました。</p>
                         <button class="button open-modal" data-work-id="work1">詳細を見る</button>
                     </div>
                     <div class="work-item">
-                        <h>"https://youtu.be/vMVdOgDpXU4" </h>
-                        <h3>キャラ選択から遊べる少し運要素があるターン制バトル</h3>
-                        <p>GoogleColabにてPython環境でゲームを作成しました。</p>
+                        <div class="media-container"><img src="Play-2.png" alt="Python Game"></div>
+                        <h3>運ゲーターン制バトル</h3>
+                        <p>Google ColabにてPythonを用いて制作したゲームです。</p>
                         <button class="button open-modal" data-work-id="work2">詳細を見る</button>
                     </div>
                     <div class="work-item">
-                        <h>"https://youtu.be/vMVdOgDpXU4" </h>
-                        <h3>モンスターストライクをモチーフとしたゲームを/h3>
-                        <p>Pygame環境で作成しました。</p>
+                        <div class="media-container"><img src="mnstPlay-1.png" alt="Monst Remake"></div>
+                        <h3>Monst Remake</h3>
+                        <p>モンスターストライクをモチーフとしたゲームをPygame環境で作成しました。</p>
                         <button class="button open-modal" data-work-id="work3">詳細を見る</button>
                     </div>
-                    </div>
-
+                </div>
             </div>
         </section>
 
@@ -92,9 +87,9 @@
                 <div class="contact-info">
                     <p>ご興味をお持ちいただけましたら、お気軽にご連絡ください。</p>
                     <ul>
-                        <li>**メールアドレス:** <a href="mailto:rb24117q@st.omu.ac.jp">rb24117q@st.omu.ac.jp</a></li>
-                        <li>**GitHub:** <a href="https://github.com/MRyoji0121" target="_blank">github.com/MRyoji0121</a></li>
-                        </ul>
+                        <li><strong>メール:</strong> <a href="mailto:rb24117q@st.omu.ac.jp">rb24117q@st.omu.ac.jp</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/MRyoji0121" target="_blank">github.com/MRyoji0121</a></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -104,28 +99,16 @@
         <p>&copy; 2025 Ryoji Maeda Portfolio</p>
     </footer>
 
-<div id="modal-work1" class="modal">
+    <div id="modal-work1" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3>Minecraft*高専RPG</h3>
+            <h3>Minecraft×高専RPG</h3>
             <div class="modal-gallery">
-                <img src="MPlay-1.png" alt="Work 1 Detail 1">
-                <img src="MPlay-2.png" alt="Work 1 Detail 2">
-                <img src="MPlay-3.png" alt="Work 1 Detail 3">
+                <img src="MPlay-1.png" alt="Detail 1"><img src="MPlay-2.png" alt="Detail 2"><img src="MPlay-3.png" alt="Detail 3">
             </div>
             <div class="modal-description">
-                <p>
-                    **【制作背景】** 高専祭の出し物として積み立てNISAに所属しアイテム及び一部エンティティの制作に携わりました。
-                </p>
-                <p>** 【製作期間】** 5月~11月</p>
-                <p>
-                    **【技術詳細】**
-                    <ul>
-                        <li>**制作環境:** JavaScript (補助:Mcreater)</li>
-                        <li>**プレイ動画**<a href="https://youtu.be/riZFF3YesHk">YouTubeに飛びます</a></li>
-                        <li>**工夫点:** 戦闘時のフィールドギミックの制作また戦闘要素でより楽しめるようにギミックの制作</li>
-                    </ul>
-                </p>
+                <p><strong>【制作背景】</strong> 高専祭の出し物として制作に携わりました。</p>
+                <p><strong>【技術】</strong> JavaScript (Mcreater補助)</p>
             </div>
         </div>
     </div>
@@ -135,51 +118,24 @@
             <span class="close-button">&times;</span>
             <h3>運ゲーターン制バトル</h3>
             <div class="modal-gallery">
-                <img src="Play-2.png" alt="Work 2 Detail 1">
-                <img src="Play-3.png" alt="Work 2 Detail 2">
-                <img src="Play-4.png" alt="Work 2 Detail 3">
+                <img src="Play-2.png" alt="Detail 1"><img src="Play-3.png" alt="Detail 2"><img src="Play-4.png" alt="Detail 3">
             </div>
             <div class="modal-description">
-                <p>
-                    **【制作背景】** プログラミングの授業のなかで自由課題として制作しました。
-                </p>
-                <p>** 【製作期間】** 7月~8月</p>
-                <p>
-                    **【技術詳細】**
-                    <ul>
-                        <li>**使用技術:** Python</li>
-                        <li>**特徴:** GoogleColab環境で制作しているためウェブで手軽に遊ぶことが可能です</li>
-                    </ul>
-                </p>
-                <p>
-                    **【工夫点】** キャラの名前を考える際、いろいろな国の名前を入れたいと考え、様々な国のよくある名前を調べた。
-                </p>
+                <p><strong>【技術】</strong> Python (Google Colab)</p>
             </div>
         </div>
     </div>
+
     <div id="modal-work3" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3>Monst Remake</h3>
             <div class="modal-gallery">
-                <img src="mnstPlay-1.png" alt="Work 3 Detail 1">
-                <img src="mnstPlay-2.png" alt="Work 3 Detail 2">
-                <img src="mnstPlay-3.png" alt="Work 3 Detail 3">
+                <img src="mnstPlay-1.png" alt="Detail 1"><img src="mnstPlay-2.png" alt="Detail 2"><img src="mnstPlay-3.png" alt="Detail 3">
             </div>
             <div class="modal-description">
-                <p>
-                    **【制作背景】** 私自身がモンスターストライクが大好きであるということ、プログラミングがあまり得意ではないこと、
-                </p>
-                <p>これらの２つのことを考えた際に、私は上達するために大好きであるモンストを再現したいと思い、制作した。</p>
-                <p>** 【製作期間】** 12月~1月</p>
-                <p>
-                    **【技術詳細】**
-                    <ul>
-                        <li>**制作環境:** JavaScript (補助:Mcreater)</li>
-                        <li>**プレイ動画**<a href="https://youtu.be/riZFF3YesHk">YouTubeに飛びます</a></li>
-                        <li>**工夫点:** モンストの重要要素であるSSを再現するた頑張った。</li>
-                    </ul>
-                </p>
+                <p><strong>【制作背景】</strong> 大好きなゲームをPythonで再現し、技術向上を目指しました。</p>
+                <p><strong>【工夫点】</strong> SS（ストライクショット）の挙動再現に注力しました。</p>
             </div>
         </div>
     </div>
