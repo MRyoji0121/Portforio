@@ -1,161 +1,149 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryoji Maeda | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryoji Maeda Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <header id="header">
+        <div class="logo">Ryoji Maeda</div>
+        <nav>
+            <button class="hamburger-menu" aria-label="メニューを開く">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">自己紹介</a></li>
+                <li><a href="#skills">スキル</a></li>
+                <li><a href="#works">制作物</a></li>
+                <li><a href="#contact">連絡先</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <header id="header">
-        <div class="logo">RYOJI<span>MAEDA</span></div>
-        <nav>
-            <button class="hamburger-menu" aria-label="メニューを開く">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#works">Works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <main>
+        <section id="about" class="hero-section">
+            <div class="container">
+                <h1>前田 陵志 のポートフォリオ</h1>
+                <p class="catchphrase">好奇心と技術で未来を創造する、16歳の高専生エンジニア。</p>
+                <div class="self-intro">
+                    <p>
+                        はじめまして、<strong>前田 陵志（まえだ りょうじ）</strong>です。現在16歳。
+                        大阪公立大学付属高等専門学校で日々技術を磨いています。
+                        学んだことをすぐに形にすることをモットーに、ゲーム制作やプログラミングに没頭しています。
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <main>
-        <section id="about" class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1 class="glitch-text">Ryoji Maeda</h1>
-                <p class="catchphrase">Curiosity × Technology</p>
-                <div class="self-intro">
-                    <p>
-                        好奇心と技術で未来を創造する、16歳の高専生エンジニア。<br>
-                        <span>大阪公立大学付属高等専門学校</span>で、ゲーム制作の限界に挑んでいます。
-                    </p>
-                </div>
-                <div class="scroll-indicator">
-                    <div class="mouse"></div>
-                    <p>SCROLL</p>
-                </div>
-            </div>
-        </section>
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>💻 スキル</h2>
+                <div class="skill-grid">
+                    <div class="skill-item"><p>Python</p></div>
+                    <div class="skill-item"><p>HTML</p></div>
+                    <div class="skill-item"><p>CSS</p></div>
+                    <div class="skill-item"><p>JavaScript</p></div>
+                </div>
+            </div>
+        </section>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title">💻 Skills</h2>
-                <div class="skill-grid">
-                    <div class="skill-item"><p>Python</p></div>
-                    <div class="skill-item"><p>HTML / CSS</p></div>
-                    <div class="skill-item"><p>JavaScript</p></div>
-                    <div class="skill-item"><p>Unity / C#</p></div>
-                </div>
-            </div>
-        </section>
+        <section id="works" class="section">
+            <div class="container">
+                <h2>📂 制作物</h2>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="media-container"><img src="MPlay-1.png" alt="Minecraft MOD"></div>
+                        <h3>Minecraft×高専RPG</h3>
+                        <p>JS環境でMinecraftの追加要素を制作しました。</p>
+                        <button class="button open-modal" data-work-id="work1">詳細を見る</button>
+                    </div>
+                    <div class="work-item">
+                        <div class="media-container"><img src="Play-2.png" alt="Python Game"></div>
+                        <h3>運ゲーターン制バトル</h3>
+                        <p>Python環境（Google Colab）でゲームを作成しました。</p>
+                        <button class="button open-modal" data-work-id="work2">詳細を見る</button>
+                    </div>
+                    <div class="work-item">
+                        <div class="media-container"><img src="mnstPlay-1.png" alt="Monst Remake"></div>
+                        <h3>Monst Remake</h3>
+                        <p>Pygame環境でモンスト風のゲームを作成しました。</p>
+                        <div class="work-links">
+                            <a href="https://github.com/MRyoji0121" class="download-link" target="_blank">
+                                <i class="fas fa-download"></i> Download / Code
+                            </a>
+                        </div>
+                        <button class="button open-modal" data-work-id="work3">詳細を見る</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="works" class="section">
-            <div class="container">
-                <h2 class="section-title">📂 Works</h2>
-                <div class="work-grid">
-                    
-                    <div class="work-item">
-                        <div class="media-container">
-                            <img src="MPlay-1.png" alt="Minecraft MOD">
-                        </div>
-                        <div class="work-info">
-                            <h3>Minecraft × 高専RPG</h3>
-                            <p>JavaScript環境でMinecraftの追加要素を制作。世界観の構築にこだわりました。</p>
-                            <button class="button open-modal" data-work-id="work1">Read More</button>
-                        </div>
-                    </div>
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2>✉️ 連絡先</h2>
+                <div class="contact-info">
+                    <p>お気軽にご連絡ください。</p>
+                    <ul>
+                        <li><strong>メール:</strong> <a href="mailto:rb24117q@st.omu.ac.jp">rb24117q@st.omu.ac.jp</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/MRyoji0121" target="_blank">github.com/MRyoji0121</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                    <div class="work-item">
-                        <div class="media-container">
-                            <img src="Play-2.png" alt="Python Game">
-                        </div>
-                        <div class="work-info">
-                            <h3>Luck-Based Battle</h3>
-                            <p>Pythonで構築したターン制バトルゲーム。各国の名前を採用したキャラクターシステムを搭載。</p>
-                            <button class="button open-modal" data-work-id="work2">Read More</button>
-                        </div>
-                    </div>
+    <footer>
+        <p>&copy; 2025 Ryoji Maeda Portfolio</p>
+    </footer>
 
-                    <div class="work-item featured">
-                        <div class="media-container">
-                            <img src="mnstPlay-1.png" alt="Monst Remake">
-                            <div class="work-badge">HOT</div>
-                        </div>
-                        <div class="work-info">
-                            <h3>Monst Remake</h3>
-                            <p>Pygameを用いたリメイク作品。SS（ストライクショット）の物理挙動を徹底再現。</p>
-                            <div class="work-links">
-                                <a href="https://github.com/MRyoji0121" class="download-link" target="_blank">
-                                    <i class="fas fa-code"></i> Source Code
-                                </a>
-                            </div>
-                            <button class="button open-modal" data-work-id="work3">View Project</button>
-                        </div>
-                    </div>
+    <div id="modal-work1" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Minecraft×高専RPG</h3>
+            <div class="modal-gallery">
+                <img src="MPlay-1.png" alt="1"><img src="MPlay-2.png" alt="2"><img src="MPlay-3.png" alt="3">
+            </div>
+            <p><strong>【技術詳細】</strong> JavaScript (Mcreater補助)</p>
+        </div>
+    </div>
 
-                </div>
-            </div>
-        </section>
+    <div id="modal-work2" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>運ゲーターン制バトル</h3>
+            <div class="modal-gallery">
+                <img src="Play-2.png" alt="1"><img src="Play-3.png" alt="2"><img src="Play-4.png" alt="3">
+            </div>
+            <p><strong>【技術詳細】</strong> Python (Google Colab)</p>
+        </div>
+    </div>
 
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title">✉️ Contact</h2>
-                <div class="contact-card">
-                    <p class="contact-text">新しいプロジェクトや共同開発のご相談など、お気軽にお問い合わせください。</p>
-                    <div class="contact-links">
-                        <a href="mailto:rb24117q@st.omu.ac.jp" class="contact-btn">
-                            <i class="far fa-envelope"></i> rb24117q@st.omu.ac.jp
-                        </a>
-                        <a href="https://github.com/MRyoji0121" target="_blank" class="contact-btn">
-                            <i class="fab fa-github"></i> GitHub Profile
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div id="modal-work3" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Monst Remake</h3>
+            <div class="modal-gallery">
+                <img src="mnstPlay-1.png" alt="1"><img src="mnstPlay-2.png" alt="2"><img src="mnstPlay-3.png" alt="3">
+            </div>
+            <div class="modal-description">
+                <p><strong>【工夫点】</strong> SSの再現を頑張りました。</p>
+                <div class="modal-footer">
+                    <a href="https://d.kuku.lu/8ftau3x3m" class="download-btn-large" target="_blank">
+                        <i class="fas fa-file-download"></i> この作品をダウンロード
+                    </a>
+                </div>
+            </div>
+ </div>
+</div>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Ryoji Maeda Portfolio. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <div id="modal-work3" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div class="modal-header">
-                <h3>Monst Remake</h3>
-                <span class="tag">Python / Pygame</span>
-            </div>
-            <div class="modal-gallery">
-                <img src="mnstPlay-1.png" alt="Detail 1">
-                <img src="mnstPlay-2.png" alt="Detail 2">
-                <img src="mnstPlay-3.png" alt="Detail 3">
-            </div>
-            <div class="modal-body">
-                <p><strong>【制作背景】</strong> 大好きなゲームのメカニズムを深く理解するため、再現プロジェクトとして開始しました。</p>
-                <p><strong>【技術的挑戦】</strong> 反射の計算、壁判定、そして各キャラクター固有の必殺技（SS）の演出をPythonのみで実装しました。</p>
-                <div class="modal-footer">
-                    <a href="https://d.kuku.lu/8ftau3x3m" class="download-btn-large" target="_blank">
-                        <i class="fas fa-file-download"></i> Download Game (ZIP)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
