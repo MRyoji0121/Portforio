@@ -16,7 +16,6 @@
         <div class="logo">
             <a href="#home">Ryoji Maeda</a>
         </div>
-        
         <nav class="nav-menu">
             <ul>
                 <li><a href="#about">自己紹介</a></li>
@@ -25,7 +24,6 @@
                 <li><a href="#contact">連絡先</a></li>
             </ul>
         </nav>
-
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -97,33 +95,32 @@
             <div class="projects-grid">
                 
                 <article class="project-card">
+                    <img src="assets/Mplay-1.jpg" alt="Minecraft高専RPG" class="project-img">
                     <div class="project-info">
                         <h3>Minecraft × 高専RPG</h3>
                         <p class="tech-stack">Java</p>
-                        <p class="desc">高専生活をMinecraftの世界観で表現したRPG。独自のアイテムやモブを追加し、高専ならではのクエストを楽しめます。</p>
-                        <a href="path/to/project1.zip" class="btn download-btn" download>
-                            <i class="fa-solid fa-download"></i> Download
-                        </a>
+                        <p class="desc">高専生活をMinecraftの世界観で表現したRPG。</p>
+                        <button class="btn detail-btn" data-target="modal-1">詳細を見る</button>
                     </div>
                 </article>
 
                 <article class="project-card">
+                    <img src="assets/Play-1.jpg" alt="運ゲーターン制バトル" class="project-img">
                     <div class="project-info">
                         <h3>運ゲーターン制バトル</h3>
                         <p class="tech-stack">Python</p>
-                        <p class="desc">戦略よりも「運」が勝敗を左右する斬新なターン制バトルゲーム。予測不能な展開で盛り上がれるパーティーゲームです。</p>
-                        <span class="btn disabled-btn">View Code (GitHub)</span>
+                        <p class="desc">戦略よりも「運」が勝敗を左右する斬新なバトルゲーム。</p>
+                        <button class="btn detail-btn" data-target="modal-2">詳細を見る</button>
                     </div>
                 </article>
 
                 <article class="project-card">
+                    <img src="assets/MnstPlay-1.jpg" alt="Monst Remake" class="project-img">
                     <div class="project-info">
                         <h3>Monst Remake</h3>
                         <p class="tech-stack">Python</p>
-                        <p class="desc">人気ゲームの物理演算挙動をPythonで再現・リメイクしました。引っ張りアクションの爽快感をプログラミングで追求しました。</p>
-                        <a href="path/to/monst remake.zip" class="btn download-btn" download>
-                            <i class="fa-solid fa-download"></i> Download
-                        </a>
+                        <p class="desc">人気ゲームの物理演算挙動をPythonで再現・リメイク。</p>
+                        <button class="btn detail-btn" data-target="modal-3">詳細を見る</button>
                     </div>
                 </article>
 
@@ -149,6 +146,83 @@
     <footer>
         <p>&copy; 2024 Ryoji Maeda. All Rights Reserved.</p>
     </footer>
+
+    <div id="modal-1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Minecraft × 高専RPG</h2>
+            <p class="modal-tech">使用技術: Java / Minecraft API</p>
+            
+            <p class="modal-desc">
+                高専生活の楽しさと厳しさをMinecraftの世界で再現しました。<br>
+                独自のモブ（先生や先輩？）や、単位取得クエストなど、高専生ならではの「あるある」を詰め込んでいます。<br>
+                プラグイン開発の知識を活かし、ゼロからシステムを構築しました。
+            </p>
+            
+            <div class="modal-gallery">
+                <img src="assets/MPlay-1.png" alt="プレイ画面1">
+                <img src="assets/MPlay-2.png" alt="プレイ画面2">
+                <img src="assets/MPlay-3.png" alt="プレイ画面3">
+            </div>
+
+            <div class="modal-actions">
+                <a href="kousen_mod_created_by_nisa-1.0.0-forge-1.20.1.jar"class="btn download-btn" download>
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>運ゲーターン制バトル</h2>
+            <p class="modal-tech">使用技術: Python</p>
+            
+            <p class="modal-desc">
+                「努力」や「戦略」をあざ笑うかのような、完全運任せのバトルゲームです。<br>
+                攻撃力がランダムで変動したり、突然回復したりと、毎ターン何が起こるかわからないドキドキ感を重視しました。<br>
+                Pythonのクラス設計を学びながら制作した意欲作です。
+            </p>
+
+            <div class="modal-gallery">
+                <img src="assets/Play-2.png" alt="プレイ画面1">
+                <img src="assets/Play-3.png" alt="プレイ画面2">
+                <img src="assets/Play-4.png" alt="プレイ画面3">
+            </div>
+
+            <div class="modal-actions">
+                <span class="btn disabled-btn">View Code (GitHub)</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Monst Remake</h2>
+            <p class="modal-tech">使用技術: Python (Pygame)</p>
+            
+            <p class="modal-desc">
+                大好きなゲームであるモンスターストライクを物理演算ライブラリを活用し、ボールが跳ね返る挙動頑張ってを再現しました。<br>
+                当たり判定の再現が難しく、もっと原作に近づくため日々奮闘中です。
+                特に「引っ張って離す」ときのアニメーションや、敵に当たった時のヒットストップ（重厚感）の調整にこだわっています。<br>
+                本家ゲームへのリスペクトを込めたリメイク作品です。
+            </p>
+
+            <div class="modal-gallery">
+                <img src="assets/mnstPlay-2.png" alt="プレイ画面1">
+                <img src="assets/mnstPlay-3.png" alt="プレイ画面2">
+                <img src="assets/mnstPlay-4.png" alt="プレイ画面3">
+            </div>
+
+            <div class="modal-actions">
+                <a href="path/to/monst remake.zip" class="btn download-btn" download>
+                    <i class="fa-solid fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

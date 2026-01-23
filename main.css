@@ -1,10 +1,10 @@
-/* ベース設定 */
+/* ベース設定などは変更なし */
 :root {
     --bg-color: #ffffff;
-    --bg-light: #f9f8f6; /* ほんの少し温かみのある白 */
+    --bg-light: #f9f8f6;
     --text-color: #333333;
-    --accent-color: #8D6E63; /* 落ち着いた茶色 */
-    --accent-dark: #5D4037; /* 濃い茶色（ホバー用） */
+    --accent-color: #8D6E63;
+    --accent-dark: #5D4037;
     --white: #ffffff;
 }
 
@@ -35,7 +35,7 @@ ul {
     list-style: none;
 }
 
-/* ヘッダー */
+/* ヘッダーまわり (変更なし) */
 .header {
     position: fixed;
     top: 0;
@@ -70,7 +70,6 @@ ul {
     color: var(--accent-color);
 }
 
-/* ハンバーガーメニューアイコン */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -86,7 +85,6 @@ ul {
     transition: 0.3s;
 }
 
-/* スマホ用メニュー（初期状態は隠す） */
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -115,7 +113,6 @@ ul {
     color: var(--accent-dark);
 }
 
-/* ハンバーガーメニューのアクティブ状態 */
 .mobile-menu.active {
     right: 0;
 }
@@ -130,7 +127,7 @@ ul {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* ヒーローセクション */
+/* ヒーローセクション (変更なし) */
 .hero {
     height: 100vh;
     display: flex;
@@ -158,7 +155,7 @@ ul {
     color: #666;
 }
 
-/* セクション共通 */
+/* セクション共通 (変更なし) */
 .section {
     padding: 80px 0;
 }
@@ -193,14 +190,14 @@ ul {
     margin: 10px auto 0;
 }
 
-/* 自己紹介 */
+/* 自己紹介 (変更なし) */
 .about-content {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
 }
 
-/* スキル */
+/* スキル (変更なし) */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -223,33 +220,50 @@ ul {
 }
 
 .stars {
-    color: #FFD700; /* 星の色 */
+    color: #FFD700;
     margin: 10px 0;
     font-size: 1.2rem;
     letter-spacing: 2px;
 }
 
-/* 制作物 */
+/* 【修正箇所】制作物 */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カードの最小幅を少し広げました */
     gap: 40px;
 }
 
 .project-card {
     background: var(--white);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: hidden; /* 画像が角丸からはみ出さないように */
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s;
     border: 1px solid #eee;
-    padding: 30px;
+    /* padding: 30px; ←削除 */
     display: flex;
     flex-direction: column;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+}
+
+/* 【追加】画像用のスタイル */
+.project-img {
+    width: 100%;
+    /* アスペクト比を16:9に固定。画像サイズがバラバラでもきれいに揃います */
+    aspect-ratio: 16 / 9; 
+    object-fit: cover; /* アスペクト比が合わない場合に画像をトリミングして埋める */
+    border-bottom: 1px solid #eee;
+}
+
+/* 【修正】テキスト部分のスタイル */
+.project-info {
+    padding: 25px; /* テキスト部分に余白を追加 */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* ボタンを下揃えにするために伸長させる */
 }
 
 .project-info h3 {
@@ -266,16 +280,17 @@ ul {
     color: var(--accent-color);
     font-weight: 700;
     margin-bottom: 15px;
+    align-self: flex-start; /* 左寄せ */
 }
 
 .project-info .desc {
     font-size: 0.95rem;
     margin-bottom: 25px;
     color: #555;
-    flex-grow: 1; /* ボタンを下揃えにするため */
+    flex-grow: 1;
 }
 
-/* ボタン */
+/* ボタンなど (変更なし) */
 .btn {
     display: inline-block;
     padding: 10px 25px;
@@ -327,7 +342,6 @@ ul {
     border-color: #333;
 }
 
-/* フッター */
 footer {
     background-color: var(--accent-dark);
     color: var(--white);
@@ -336,14 +350,14 @@ footer {
     font-size: 0.8rem;
 }
 
-/* レスポンシブ (スマホ対応) */
+/* レスポンシブ (スマホ対応) (変更なし) */
 @media screen and (max-width: 768px) {
     .nav-menu {
-        display: none; /* PC用メニューを消す */
+        display: none;
     }
     
     .hamburger {
-        display: block; /* ハンバーガーを表示 */
+        display: block;
     }
 
     .hero h1 {
@@ -354,4 +368,125 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+}
+/* --- ここから下を追加してください --- */
+
+/* 詳細ボタン */
+.detail-btn {
+    background-color: var(--white);
+    color: var(--accent-color);
+    width: 100%;
+    margin-top: auto; /* ボタンを一番下に押しやる */
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* モーダル全体の背景（黒い半透明） */
+.modal {
+    display: none; /* 初期状態は非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* モーダルが表示される時のクラス */
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* モーダルの中身（白い箱） */
+.modal-content {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh; /* 画面からはみ出さない */
+    overflow-y: auto; /* 縦スクロール可能に */
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* 閉じるボタン（×） */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+}
+
+/* モーダル内のテキスト */
+.modal h2 {
+    color: var(--accent-dark);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+.modal-tech {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.modal-desc {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* 追加写真のギャラリー */
+.modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.modal-gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* モーダル内のアクションボタンエリア */
+.modal-actions {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
